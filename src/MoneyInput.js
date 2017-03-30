@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, {Component, PropTypes} from 'react';
-import cn from 'classnames';
+import {Input, Icon} from 'semantic-ui-react';
 import Money from 'js-money';
 import TPropTypes from 'tproptypes';
 import moneyInputMask from './moneyInputMask';
@@ -83,23 +83,24 @@ export default class MoneyInput extends Component {
 	}
 
 	render() {
-		const {onDetailsClick, placeholder, detailsIcon, locked, fluid, className} = this.props;
+		const {onDetailsClick, placeholder, detailsIcon, locked, value, meta, ...rest} = this.props;
 
 		const detailsButton = onDetailsClick ? (
-			<i
-				className={cn('link icon', detailsIcon, {blue: locked, action: locked})}
-				data-title="Details"
-				data-content="Click for more details"
-				ref={r => (this._tip = r)}
-				onClick={onDetailsClick}
+			<Icon
+				name={detailsIcon}
+			  color={locked ? 'blue' : null}
+			  link
+			  data-title="Details"
+			  data-content="Click for more details"
+			  onClick={onDetailsClick}
 			/>
 		) : null;
 
 		return (
-			<div className={cn('ui input', className, {icon: !!onDetailsClick, fluid})}>
-				<input placeholder={placeholder} type="text" ref={r => (this._input = r)} readOnly={locked ? 'readonly' : null}/>
+			<Input placeholder={placeholder} icon={!!onDetailsClick} {...rest}>
+				<input type="text" ref={r => (this._input = r)} readOnly={locked ? 'readonly' : null}/>
 				{detailsButton}
-			</div>
+			</Input>
 		);
 	}
 }
