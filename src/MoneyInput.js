@@ -97,8 +97,10 @@ export default class MoneyInput extends Component {
 		) : null;
 
 		return (
-			<Input placeholder={placeholder} icon={!!onDetailsClick} {...rest}>
-				<input type="text" ref={r => (this._input = r)} readOnly={locked ? 'readonly' : null}/>
+			<Input placeholder={placeholder} icon={!!onDetailsClick}>
+				<div>
+					<input type="text" ref={r => (this._input = r)} readOnly={locked ? 'readonly' : null}/>
+				</div>
 				{detailsButton}
 			</Input>
 		);
