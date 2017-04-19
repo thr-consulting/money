@@ -5,12 +5,12 @@ var nodeExternals = require('webpack-node-externals');
 const root = path.resolve(__dirname);
 
 module.exports = {
-	entry: './src/index.js',
+	entry: './lib/index.js',
 	target: 'node',
 	devtool: 'source-map',
 	externals: [nodeExternals()],
 	output: {
-		path: path.resolve(root, 'lib'),
+		path: path.resolve(root, 'dist'),
 		filename: "index.js",
 		library: "money",
 		libraryTarget: "umd"
@@ -42,13 +42,5 @@ module.exports = {
 		// 	},
 		// 	sourceMap: true,
 		// }),
-	],
-	resolve: {
-		alias: {
-			'inputmask.dependencyLib': path.join(root, 'node_modules/jquery.inputmask/dist/inputmask/inputmask.dependencyLib.js'),
-			'inputmask.extensions': path.join(root, 'node_modules/jquery.inputmask/dist/inputmask/inputmask.extensions.js'),
-			'inputmask.numeric.extensions': path.join(root, 'node_modules/jquery.inputmask/dist/inputmask/inputmask.numeric.extensions.js'),
-			'inputmask': path.join(root, 'node_modules/jquery.inputmask/dist/inputmask/inputmask.js')
-		},
-	},
+	]
 };
