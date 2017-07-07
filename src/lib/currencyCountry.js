@@ -1,3 +1,5 @@
+// @flow
+
 const currencyCountryMap = {
 	USD: 'US',
 	CAD: 'CA',
@@ -121,11 +123,10 @@ const currencyCountryMap = {
 
 /**
  * Returns a country code from a currency. Not 100% accurate as some currencies are used in multiple countries.
- * @memberOf module:money
  * @param {string} currency - The currency code.
  * @return {string} The country code.
  */
-export default function getCountryCode(currency) {
+export default function getCountryCode(currency: string) {
 	if (!currencyCountryMap[currency]) return '';
 	return currencyCountryMap[currency].toLowerCase();
 }

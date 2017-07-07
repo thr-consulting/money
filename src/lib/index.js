@@ -1,7 +1,5 @@
-/**
- * Money Addons
- * @module module:addons/money
- */
+// @flow
+
 import MoneyInput from './MoneyInput';
 import getCountryCode from './currencyCountry';
 import {makeMoney, formatMoney, roundTo} from './util';

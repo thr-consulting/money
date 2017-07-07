@@ -1,19 +1,18 @@
-var webpack = require('webpack');
-var path = require('path');
-var nodeExternals = require('webpack-node-externals');
+import path from 'path';
+import nodeExternals from 'webpack-node-externals';
 
 const root = path.resolve(__dirname);
 
 module.exports = {
-	entry: './lib/index.js',
+	entry: './src/lib/index.js',
 	target: 'node',
 	devtool: 'source-map',
 	externals: [nodeExternals()],
 	output: {
 		path: path.resolve(root, 'dist'),
-		filename: "index.js",
-		library: "money",
-		libraryTarget: "umd"
+		filename: 'index.js',
+		library: 'money',
+		libraryTarget: 'umd',
 	},
 	module: {
 		rules: [
@@ -28,13 +27,14 @@ module.exports = {
 							presets: [
 								['es2015', {loose: true, modules: false}],
 								'stage-1',
-								'react'
-							]
-						}
-					}
+								'react',
+								'flow',
+							],
+						},
+					},
 				],
-			}
-		]
+			},
+		],
 	},
 	plugins: [
 		// new webpack.optimize.UglifyJsPlugin({
@@ -43,5 +43,5 @@ module.exports = {
 		// 	},
 		// 	sourceMap: true,
 		// }),
-	]
+	],
 };

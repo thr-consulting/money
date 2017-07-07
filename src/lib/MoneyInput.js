@@ -1,3 +1,5 @@
+// @flow
+
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
@@ -27,7 +29,6 @@ function moneyFromProps(value) {
 /**
  * A masked money input. Defaults to CAD funds.
  * @class
- * @memberOf module:addons/money
  * @property {Money} value - The money value.
  * @property {onChange} onChange - Called when the value changes.
  * @property {function} onDetailsClick - Called when the details button is clicked.
@@ -55,11 +56,15 @@ export default class MoneyInput extends Component {
 		fluid: false,
 	};
 
-	constructor(props) {
+	constructor(props: Object) {
 		super(props);
 		const money = moneyFromProps(this.props.value);
 		this.state = {money};
 	}
+
+	state: {
+		money: Money,
+	};
 
 	componentDidMount() {
 		this._input.value = this.state.money.toDecimal();
@@ -70,7 +75,7 @@ export default class MoneyInput extends Component {
 		});
 	}
 
-	componentDidUpdate(prevProps) {
+	componentDidUpdate(prevProps: Object) {
 		const money = moneyFromProps(this.props.value);
 		const prevMoney = moneyFromProps(prevProps.value);
 		if (!money.equals(prevMoney) && !money.equals(this.state.money)) {
@@ -78,26 +83,25 @@ export default class MoneyInput extends Component {
 		}
 	}
 
-	componentWillUnmount() {
-	}
+	_input: Object;
 
-	handleChange = value => {
+	handleChange = (value: number) => {
 		const money = Money.fromDecimal(value, this.state.money.currency);
 		this.setState({money});
 		if (this.props.onChange) this.props.onChange(money);
 	}
 
 	render() {
-		const {onDetailsClick, placeholder, detailsIcon, locked, value, meta, ...rest} = this.props;
+		const {onDetailsClick, placeholder, detailsIcon, locked} = this.props;
 
 		const detailsButton = onDetailsClick ? (
 			<Icon
 				name={detailsIcon}
-			  color={locked ? 'blue' : null}
-			  link
-			  data-title="Details"
-			  data-content="Click for more details"
-			  onClick={onDetailsClick}
+				color={locked ? 'blue' : null}
+				link
+				data-title="Details"
+				data-content="Click for more details"
+				onClick={onDetailsClick}
 			/>
 		) : null;
 
