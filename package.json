@@ -77,7 +77,7 @@
     "js-money": "^0.6.3",
     "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
-    "tproptypes": "^0.1.10"
+    "tproptypes": "^0.1.11"
   },
   "pre-commit": [
     "lint",
