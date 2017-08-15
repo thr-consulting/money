@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Input, Icon} from 'semantic-ui-react';
 import Money from 'js-money';
-import TPropTypes from 'tproptypes';
+import TPropTypes from '@thx/tproptypes';
 import debug from 'debug';
 import moneyInputMask from './moneyInputMask';
 
