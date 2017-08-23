@@ -5,17 +5,18 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "webpack --config webpack.config.babel.js",
-    "demo": "react-scripts start",
     "prepare": "npm run build",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
+    "test:coverage": "jest --coverage && cat coverage/lcov.info | coverbadge -o coverage/coverage.svg",
     "flow": "flow",
-    "lint": "eslint *.js src/lib",
+    "lint": "eslint *.js lib",
     "docs": "jsdoc -c jsdoc.json",
-    "docs:md": "jsdoc2md -c jsdoc.json -f src/lib/*.js > docs/README.md",
+    "docs:md": "jsdoc2md -c jsdoc.json -f lib/*.js > docs/README.md",
     "docs:explain": "jsdoc -X -c jsdoc.json",
-    "validate": "npm ls"
+    "validate": "npm ls",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "jest": {
     "snapshotSerializers": [
@@ -36,6 +37,10 @@
   "author": "Mike Kornelson <mike@durbn.net>",
   "license": "MIT",
   "devDependencies": {
+    "@storybook/addon-actions": "^3.2.6",
+    "@storybook/addon-knobs": "^3.2.7",
+    "@storybook/addon-storyshots": "^3.2.7",
+    "@storybook/react": "^3.2.7",
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
@@ -43,6 +48,7 @@
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
+    "coverbadge": "^0.5.5",
     "enzyme": "^2.9.1",
     "enzyme-to-json": "^1.5.1",
     "eslint": "^4.4.1",
@@ -62,18 +68,17 @@
     "precommit-hook-eslint": "^3.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-scripts": "1.0.10",
     "react-test-renderer": "^15.6.1",
-    "semantic-ui-react": "^0.71.4",
+    "semantic-ui-react": "^0.71.3",
     "webpack": "^3.5.4",
     "webpack-node-externals": "^1.6.0"
   },
   "peerDependencies": {
     "react": "^15.5.0",
-    "semantic-ui-react": "^0.71.4"
+    "semantic-ui-react": "^0.71.3"
   },
   "dependencies": {
-    "@thx/tproptypes": "^1.0.0",
+    "@thx/tproptypes": "^1.0.2",
     "accounting": "^0.4.1",
     "debug": "^3.0.0",
     "inputmask": "^3.3.7",
@@ -83,8 +88,7 @@
   },
   "greenkeeper": {
     "ignore": [
-      "eslint-plugin-jsx-a11y",
-      "react-scripts"
+      "eslint-plugin-jsx-a11y"
     ]
   },
   "pre-commit": [

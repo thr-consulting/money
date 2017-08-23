@@ -31,3 +31,18 @@ Object {
   "currency": "CAD",
 }
 `;
+
+exports[`Transforms should transform objects to Money 1`] = `
+Object {
+  "field1": Object {
+    "amount": 500,
+    "currency": "CAD",
+  },
+  "field2": Array [
+    Object {
+      "amount": 500,
+      "currency": "CAD",
+    },
+  ],
+}
+`;

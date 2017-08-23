@@ -7,7 +7,7 @@
     ]
   },
   "source": {
-    "include": "src/lib",
+    "include": "lib",
     "includePattern": ".+\\.js(doc)?$",
     "excludePattern": "(^|\\/|\\\\)_"
   },

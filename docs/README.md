@@ -13,7 +13,7 @@
 <dt><a href="#getCountryCode">getCountryCode(currency)</a> ⇒ <code>string</code></dt>
 <dd><p>Returns a country code from a currency. Not 100% accurate as some currencies are used in multiple countries.</p>
 </dd>
-<dt><a href="#makeMoney">makeMoney(objOrDecimal, currency)</a> ⇒ <code>Money</code></dt>
+<dt><a href="#makeMoney">makeMoney(objOrDecimal, currency)</a> ⇒ <code><a href="#Money">Money</a></code></dt>
 <dd><p>Creates a Money object out of a plain Object or decimal. Defaults null to $0 CAD.</p>
 </dd>
 <dt><a href="#roundTo">roundTo(value, decimals)</a> ⇒ <code>number</code></dt>
@@ -21,11 +21,14 @@
 </dd>
 <dt><a href="#formatMoney">formatMoney(money, symbol)</a> ⇒ <code>string</code></dt>
 <dd><p>Formats a Money value to a nice string.</p>
+</dd>
+<dt><a href="#transformObjectsToMoney">transformObjectsToMoney(obj)</a> ⇒ <code>*</code></dt>
+<dd><p>Transforms anything that has Money style objects into Money.</p>
 </dd>
 <dt><a href="#getCountryCode">getCountryCode(currency)</a> ⇒ <code>string</code></dt>
 <dd><p>Returns a country code from a currency. Not 100% accurate as some currencies are used in multiple countries.</p>
 </dd>
-<dt><a href="#makeMoney">makeMoney(objOrDecimal, currency)</a> ⇒ <code>Money</code></dt>
+<dt><a href="#makeMoney">makeMoney(objOrDecimal, currency)</a> ⇒ <code><a href="#Money">Money</a></code></dt>
 <dd><p>Creates a Money object out of a plain Object or decimal. Defaults null to $0 CAD.</p>
 </dd>
 <dt><a href="#roundTo">roundTo(value, decimals)</a> ⇒ <code>number</code></dt>
@@ -33,6 +36,20 @@
 </dd>
 <dt><a href="#formatMoney">formatMoney(money, symbol)</a> ⇒ <code>string</code></dt>
 <dd><p>Formats a Money value to a nice string.</p>
+</dd>
+<dt><a href="#transformObjectsToMoney">transformObjectsToMoney(obj)</a> ⇒ <code>*</code></dt>
+<dd><p>Transforms anything that has Money style objects into Money.</p>
+</dd>
+</dl>
+
+## Typedefs
+
+<dl>
+<dt><a href="#Money">Money</a></dt>
+<dd><p>A JS-Money object.</p>
+</dd>
+<dt><a href="#Money">Money</a></dt>
+<dd><p>A JS-Money object.</p>
 </dd>
 </dl>
 
@@ -44,14 +61,12 @@
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| value | <code>Money</code> |  | The money value. |
+| value | [<code>Money</code>](#Money) |  | The money value. |
 | onChange | <code>onChange</code> |  | Called when the value changes. |
 | onDetailsClick | <code>function</code> |  | Called when the details button is clicked. |
 | detailsIcon | <code>string</code> | <code>&quot;server&quot;</code> | The Semantic UI icon to display on the details button. |
 | placeholder | <code>string</code> |  | The placeholder text to display. |
 | locked | <code>bool</code> | <code>false</code> | If true, cannot edit the amount. |
-| fluid | <code>bool</code> | <code>false</code> | If true, the input has a fluid width. |
-| className | <code>string</code> |  | Custom input div class names. |
 
 
 * [MoneyInput](#MoneyInput)
@@ -76,14 +91,12 @@ A masked money input. Defaults to CAD funds.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| value | <code>Money</code> |  | The money value. |
+| value | [<code>Money</code>](#Money) |  | The money value. |
 | onChange | <code>onChange</code> |  | Called when the value changes. |
 | onDetailsClick | <code>function</code> |  | Called when the details button is clicked. |
 | detailsIcon | <code>string</code> | <code>&quot;server&quot;</code> | The Semantic UI icon to display on the details button. |
 | placeholder | <code>string</code> |  | The placeholder text to display. |
 | locked | <code>bool</code> | <code>false</code> | If true, cannot edit the amount. |
-| fluid | <code>bool</code> | <code>false</code> | If true, the input has a fluid width. |
-| className | <code>string</code> |  | Custom input div class names. |
 
 
 * [MoneyInput](#MoneyInput)
@@ -114,7 +127,7 @@ Returns a country code from a currency. Not 100% accurate as some currencies are
 
 <a name="makeMoney"></a>
 
-## makeMoney(objOrDecimal, currency) ⇒ <code>Money</code>
+## makeMoney(objOrDecimal, currency) ⇒ [<code>Money</code>](#Money)
 Creates a Money object out of a plain Object or decimal. Defaults null to $0 CAD.
 
 **Kind**: global function  
@@ -147,8 +160,19 @@ Formats a Money value to a nice string.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| money | <code>Money</code> | The Money value |
+| money | [<code>Money</code>](#Money) | The Money value |
 | symbol | <code>bool</code> | If true displays the proper currency symbol |
+
+<a name="transformObjectsToMoney"></a>
+
+## transformObjectsToMoney(obj) ⇒ <code>\*</code>
+Transforms anything that has Money style objects into Money.
+
+**Kind**: global function  
+
+| Param |
+| --- |
+| obj | 
 
 <a name="getCountryCode"></a>
 
@@ -164,7 +188,7 @@ Returns a country code from a currency. Not 100% accurate as some currencies are
 
 <a name="makeMoney"></a>
 
-## makeMoney(objOrDecimal, currency) ⇒ <code>Money</code>
+## makeMoney(objOrDecimal, currency) ⇒ [<code>Money</code>](#Money)
 Creates a Money object out of a plain Object or decimal. Defaults null to $0 CAD.
 
 **Kind**: global function  
@@ -197,6 +221,29 @@ Formats a Money value to a nice string.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| money | <code>Money</code> | The Money value |
+| money | [<code>Money</code>](#Money) | The Money value |
 | symbol | <code>bool</code> | If true displays the proper currency symbol |
 
+<a name="transformObjectsToMoney"></a>
+
+## transformObjectsToMoney(obj) ⇒ <code>\*</code>
+Transforms anything that has Money style objects into Money.
+
+**Kind**: global function  
+
+| Param |
+| --- |
+| obj | 
+
+<a name="Money"></a>
+
+## Money
+A JS-Money object.
+
+**Kind**: global typedef  
+<a name="Money"></a>
+
+## Money
+A JS-Money object.
+
+**Kind**: global typedef  
