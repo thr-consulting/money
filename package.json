@@ -1,18 +1,19 @@
 {
   "name": "@thx/money",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Money addons",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "build": "webpack --config webpack.config.babel.js",
-    "prepare": "npm run build",
+    "build": "npm run clean:lib && npm run build:lib",
+    "build:lib": "babel src --out-dir lib",
+    "clean:lib": "rimraf ./lib/*",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage && cat coverage/lcov.info | coverbadge -o coverage/coverage.svg",
     "flow": "flow",
-    "lint": "eslint *.js lib",
+    "lint": "eslint *.js src",
     "docs": "jsdoc -c jsdoc.json",
-    "docs:md": "jsdoc2md -c jsdoc.json -f lib/*.js > docs/README.md",
+    "docs:md": "jsdoc2md -c jsdoc.json -f src/*.js > docs/README.md",
     "docs:explain": "jsdoc -X -c jsdoc.json",
     "validate": "npm ls",
     "storybook": "start-storybook -p 6006",
@@ -41,13 +42,10 @@
     "@storybook/addon-knobs": "^3.2.7",
     "@storybook/addon-storyshots": "^3.2.7",
     "@storybook/react": "^3.2.7",
-    "babel-core": "^6.25.0",
+    "babel-cli": "^6.26.0",
     "babel-eslint": "^7.2.3",
-    "babel-loader": "^7.1.1",
-    "babel-preset-es2015": "^6.24.1",
     "babel-preset-flow": "^6.23.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-1": "^6.24.1",
+    "babel-preset-jason": "^3.1.0",
     "coverbadge": "^0.5.5",
     "enzyme": "^2.9.1",
     "enzyme-to-json": "^1.5.1",
@@ -69,16 +67,15 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-test-renderer": "^15.6.1",
-    "semantic-ui-react": "^0.72.0",
-    "webpack": "^3.5.4",
-    "webpack-node-externals": "^1.6.0"
+    "rimraf": "^2.6.2",
+    "semantic-ui-react": "^0.72.0"
   },
   "peerDependencies": {
     "react": "^15.5.0",
     "semantic-ui-react": "^0.72.0"
   },
   "dependencies": {
-    "@thx/tproptypes": "^1.0.3",
+    "@thx/tproptypes": "^1.0.4",
     "accounting": "^0.4.1",
     "debug": "^3.0.0",
     "inputmask": "^3.3.7",
@@ -94,7 +91,6 @@
   "pre-commit": [
     "lint",
     "flow",
-    "test",
-    "docs:md"
+    "test"
   ]
 }

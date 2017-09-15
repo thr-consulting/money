@@ -4,7 +4,7 @@ import {
 	roundTo,
 	formatMoney,
 	transformObjectsToMoney,
-} from '../util';
+} from '../src/util';
 
 describe('Make Money', () => {
 	it('should return 0.00 canadian dollars by default', () => {

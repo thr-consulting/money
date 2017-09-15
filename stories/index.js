@@ -3,7 +3,7 @@ import {storiesOf} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
 import {withKnobs, text, boolean} from '@storybook/addon-knobs';
 import Money from 'js-money';
-import {MoneyInput} from '../lib';
+import {MoneyInput} from '../src';
 
 const stories = storiesOf('Money', module)
 	.addDecorator(withKnobs)

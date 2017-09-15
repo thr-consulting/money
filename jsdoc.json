@@ -7,7 +7,7 @@
     ]
   },
   "source": {
-    "include": "lib",
+    "include": "src",
     "includePattern": ".+\\.js(doc)?$",
     "excludePattern": "(^|\\/|\\\\)_"
   },
@@ -27,9 +27,7 @@
       "js"
     ],
     "presets": [
-      "react",
-	    "es2015",
-      "stage-1",
+      ["jason", {"debug": false}],
 	    "flow"
     ]
   },

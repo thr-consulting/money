@@ -1,4 +1,4 @@
-import getCountryCode from '../currencyCountry';
+import getCountryCode from '../src/currencyCountry';
 
 describe('currencyCountry', () => {
 	it('should return the correct country code', () => {

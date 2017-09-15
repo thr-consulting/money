@@ -1,8 +1,6 @@
-'use strict';
+// @flow
 
-exports.__esModule = true;
-exports.default = getCountryCode;
-var currencyCountryMap = {
+const currencyCountryMap = {
 	USD: 'US',
 	CAD: 'CA',
 	EUR: 'DE',
@@ -120,7 +118,7 @@ var currencyCountryMap = {
 	XOF: 'CF',
 	YER: 'YE',
 	ZAR: 'ZA',
-	ZMK: 'ZM'
+	ZMK: 'ZM',
 };
 
 /**
@@ -128,8 +126,7 @@ var currencyCountryMap = {
  * @param {string} currency - The currency code.
  * @return {string} The country code.
  */
-function getCountryCode(currency) {
+export default function getCountryCode(currency: string) {
 	if (!currencyCountryMap[currency]) return '';
 	return currencyCountryMap[currency].toLowerCase();
 }
-module.exports = exports['default'];

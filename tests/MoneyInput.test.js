@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import MoneyInput from '../MoneyInput';
+import MoneyInput from '../src/MoneyInput';
 
 describe('MoneyInput', () => {
 	it('should render without throwing an error', () => {
