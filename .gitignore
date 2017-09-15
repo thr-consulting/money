@@ -6,3 +6,4 @@ npm-debug.log
 coverage
 docs/*
 !docs/README.md
+server.js

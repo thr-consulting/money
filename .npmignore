@@ -16,3 +16,4 @@ tests/
 jsdoc.globals.js
 jsdoc.json
 yarn.lock
+index.server.js
