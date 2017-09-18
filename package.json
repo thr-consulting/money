@@ -75,7 +75,7 @@
     "semantic-ui-react": "^0.73.0"
   },
   "dependencies": {
-    "@thx/tproptypes": "^1.0.4",
+    "@thx/tproptypes": "^3.0.0",
     "accounting": "^0.4.1",
     "debug": "^3.0.0",
     "inputmask": "^3.3.7",
